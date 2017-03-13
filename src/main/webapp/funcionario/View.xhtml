@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="FuncionarioViewDlg" widgetVar="FuncionarioViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewFuncionarioTitle}">
+            <h:form id="FuncionarioViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="4" rendered="#{funcionarioController.selected != null}">
+                        <h:outputText value="#{bundle.ViewFuncionarioLabel_nomeFuncionario}"/>
+                        <h:outputText value="#{funcionarioController.selected.nomeFuncionario}" title="#{bundle.ViewFuncionarioTitle_nomeFuncionario}"/>
+                        <h:outputText value="#{bundle.ViewFuncionarioLabel_sobrenomeFuncionario}"/>
+                        <h:outputText value="#{funcionarioController.selected.sobrenomeFuncionario}" title="#{bundle.ViewFuncionarioTitle_sobrenomeFuncionario}"/>
+                        <h:outputText value="#{bundle.ViewFuncionarioLabel_rg}"/>
+                        <h:outputText value="#{funcionarioController.selected.rg}" title="#{bundle.ViewFuncionarioTitle_rg}"/>
+                        <h:outputText value="#{bundle.ViewFuncionarioLabel_cpf}"/>
+                        <h:outputText value="#{funcionarioController.selected.cpf}" title="#{bundle.ViewFuncionarioTitle_cpf}"/>
+                        <h:outputText value="#{bundle.ViewFuncionarioLabel_ramal}"/>
+                        <h:outputText value="#{funcionarioController.selected.ramal}" title="#{bundle.ViewFuncionarioTitle_ramal}"/>
+                        <h:outputText value="#{bundle.ViewFuncionarioLabel_dataHoraCriacao}"/>
+                        <h:outputText value="#{funcionarioController.selected.dataHoraCriacao}" title="#{bundle.ViewFuncionarioTitle_dataHoraCriacao}">
+                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewFuncionarioLabel_dataHoraEdicao}"/>
+                        <h:outputText value="#{funcionarioController.selected.dataHoraEdicao}" title="#{bundle.ViewFuncionarioTitle_dataHoraEdicao}">
+                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewFuncionarioLabel_sexo}"/>
+                        <h:outputText value="#{funcionarioController.selected.sexo}" title="#{bundle.ViewFuncionarioTitle_sexo}"/>
+                        <h:outputText value="#{bundle.ViewFuncionarioLabel_dataNascimento}"/>
+                        <h:outputText value="#{funcionarioController.selected.dataNascimento}" title="#{bundle.ViewFuncionarioTitle_dataNascimento}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewFuncionarioLabel_estadoCivil}"/>
+                        <h:outputText value="#{funcionarioController.selected.estadoCivil}" title="#{bundle.ViewFuncionarioTitle_estadoCivil}"/>
+                        <h:outputText value="#{bundle.ViewFuncionarioLabel_dataCasamento}"/>
+                        <h:outputText value="#{funcionarioController.selected.dataCasamento}" title="#{bundle.ViewFuncionarioTitle_dataCasamento}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewFuncionarioLabel_dependentes}"/>
+                        <p:selectOneRadio disabled="true"  id="dependentes" value="#{funcionarioController.selected.dependentes}">
+                                <f:selectItem itemLabel="Sim" itemValue="1" />
+                                <f:selectItem itemLabel="Não" itemValue="2" />
+                            </p:selectOneRadio>                             
+                        <h:outputText value="#{bundle.ViewFuncionarioLabel_emailEmpresa}"/>
+                        <h:outputText value="#{funcionarioController.selected.emailEmpresa}" title="#{bundle.ViewFuncionarioTitle_emailEmpresa}"/>
+                        <h:outputText value="#{bundle.ViewFuncionarioLabel_emailPessoal}"/>
+                        <h:outputText value="#{funcionarioController.selected.emailPessoal}" title="#{bundle.ViewFuncionarioTitle_emailPessoal}"/>
+                        <h:outputText value="#{bundle.ViewFuncionarioLabel_foto}"/>
+                        <h:outputText value="#{funcionarioController.selected.foto}" title="#{bundle.ViewFuncionarioTitle_foto}"/>
+                        <h:outputText value="#{bundle.ViewFuncionarioLabel_grauEscolar}"/>
+                        <h:outputText value="#{funcionarioController.selected.grauEscolar}" title="#{bundle.ViewFuncionarioTitle_grauEscolar}"/>
+                        <h:outputText value="#{bundle.ViewFuncionarioLabel_planoSaudeInterno}"/>
+                            <p:selectOneRadio disabled="true" id="planoSaudeInterno" value="#{funcionarioController.selected.planoSaudeInterno}">
+                                <f:selectItem itemLabel="Sim" itemValue="1" />
+                                <f:selectItem itemLabel="Não" itemValue="2" />
+                            </p:selectOneRadio>                          
+                        <h:outputText value="#{bundle.ViewFuncionarioLabel_dataAdmissão}"/>
+                        <h:outputText value="#{funcionarioController.selected.dataAdmissão}" title="#{bundle.ViewFuncionarioTitle_dataAdmissão}">
+                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewFuncionarioLabel_dataDemissao}"/>
+                        <h:outputText value="#{funcionarioController.selected.dataDemissao}" title="#{bundle.ViewFuncionarioTitle_dataDemissao}">
+                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewFuncionarioLabel_salarioBruto}" />
+                        <h:outputText value="#{funcionarioController.selected.salarioBruto}" title="#{bundle.ViewFuncionarioTitle_salarioBruto}">
+                            <f:convertNumber type="currency" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewFuncionarioLabel_numeroCarteiraTrabalho}"/>
+                        <h:outputText value="#{funcionarioController.selected.numeroCarteiraTrabalho}" title="#{bundle.ViewFuncionarioTitle_numeroCarteiraTrabalho}"/>
+                        <h:outputText value="#{bundle.ViewFuncionarioLabel_fkidCargo}"/>
+                        <h:outputText value="#{funcionarioController.selected.fkidCargo.descricaoCargo}" title="#{bundle.ViewFuncionarioTitle_fkidCargo}"/>
+                        <h:outputText value="#{bundle.ViewFuncionarioLabel_fkidSetor}"/>
+                        <h:outputText value="#{funcionarioController.selected.fkidSetor.descricaoSetor}" title="#{bundle.ViewFuncionarioTitle_fkidSetor}"/>
+                    </p:panelGrid>
+                    <h:panelGrid columns="1">
+                        <p:graphicImage style="width: 100px; height: 100px" value="#{funcionarioController.abrirImagem(funcionarioController.selected)}" />
+                    </h:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="FuncionarioViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

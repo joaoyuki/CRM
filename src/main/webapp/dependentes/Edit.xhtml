@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="DependentesEditDlg" widgetVar="DependentesEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditDependentesTitle}">
+            <h:form id="DependentesEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{dependentesController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditDependentesLabel_nomeDependente}" for="nomeDependente" />
+                        <p:inputText id="nomeDependente" value="#{dependentesController.selected.nomeDependente}" title="#{bundle.EditDependentesTitle_nomeDependente}" />
+                        <p:outputLabel value="#{bundle.EditDependentesLabel_sobrenomeDependente}" for="sobrenomeDependente" />
+                        <p:inputText id="sobrenomeDependente" value="#{dependentesController.selected.sobrenomeDependente}" title="#{bundle.EditDependentesTitle_sobrenomeDependente}" />
+                        <p:outputLabel value="#{bundle.EditDependentesLabel_idadeDependente}" for="idadeDependente" />
+                        <p:inputText id="idadeDependente" value="#{dependentesController.selected.idadeDependente}" title="#{bundle.EditDependentesTitle_idadeDependente}" />
+                        <p:outputLabel value="#{bundle.EditDependentesLabel_rgDependente}" for="rgDependente" />
+                        <p:inputText id="rgDependente" value="#{dependentesController.selected.rgDependente}" title="#{bundle.EditDependentesTitle_rgDependente}" />
+                        <p:outputLabel value="#{bundle.EditDependentesLabel_cpfDependente}" for="cpfDependente" />
+                        <p:inputText id="cpfDependente" value="#{dependentesController.selected.cpfDependente}" title="#{bundle.EditDependentesTitle_cpfDependente}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{dependentesController.update}" value="#{bundle.Save}" update="display,:DependentesListForm:datalist,:growl" oncomplete="handleSubmit(args, 'DependentesEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="DependentesEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

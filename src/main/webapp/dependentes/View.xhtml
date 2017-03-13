@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="DependentesViewDlg" widgetVar="DependentesViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewDependentesTitle}">
+            <h:form id="DependentesViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{dependentesController.selected != null}">
+                        <h:outputText value="#{bundle.ViewDependentesLabel_idDependentes}"/>
+                        <h:outputText value="#{dependentesController.selected.idDependentes}" title="#{bundle.ViewDependentesTitle_idDependentes}"/>
+                        <h:outputText value="#{bundle.ViewDependentesLabel_nomeDependente}"/>
+                        <h:outputText value="#{dependentesController.selected.nomeDependente}" title="#{bundle.ViewDependentesTitle_nomeDependente}"/>
+                        <h:outputText value="#{bundle.ViewDependentesLabel_sobrenomeDependente}"/>
+                        <h:outputText value="#{dependentesController.selected.sobrenomeDependente}" title="#{bundle.ViewDependentesTitle_sobrenomeDependente}"/>
+                        <h:outputText value="#{bundle.ViewDependentesLabel_idadeDependente}"/>
+                        <h:outputText value="#{dependentesController.selected.idadeDependente}" title="#{bundle.ViewDependentesTitle_idadeDependente}"/>
+                        <h:outputText value="#{bundle.ViewDependentesLabel_rgDependente}"/>
+                        <h:outputText value="#{dependentesController.selected.rgDependente}" title="#{bundle.ViewDependentesTitle_rgDependente}"/>
+                        <h:outputText value="#{bundle.ViewDependentesLabel_cpfDependente}"/>
+                        <h:outputText value="#{dependentesController.selected.cpfDependente}" title="#{bundle.ViewDependentesTitle_cpfDependente}"/>
+                        <h:outputText value="#{bundle.ViewDependentesLabel_dataHoraCriacao}"/>
+                        <h:outputText value="#{dependentesController.selected.dataHoraCriacao}" title="#{bundle.ViewDependentesTitle_dataHoraCriacao}">
+                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewDependentesLabel_dataHoraEdicao}"/>
+                        <h:outputText value="#{dependentesController.selected.dataHoraEdicao}" title="#{bundle.ViewDependentesTitle_dataHoraEdicao}">
+                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewDependentesLabel_usuarioCriacao}"/>
+                        <h:outputText value="#{dependentesController.selected.usuarioCriacao}" title="#{bundle.ViewDependentesTitle_usuarioCriacao}"/>
+                        <h:outputText value="#{bundle.ViewDependentesLabel_usuarioEdicao}"/>
+                        <h:outputText value="#{dependentesController.selected.usuarioEdicao}" title="#{bundle.ViewDependentesTitle_usuarioEdicao}"/>
+                        <h:outputText value="#{bundle.ViewDependentesLabel_fkidFuncionario}"/>
+                        <h:outputText value="#{dependentesController.selected.fkidFuncionario}" title="#{bundle.ViewDependentesTitle_fkidFuncionario}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="DependentesViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

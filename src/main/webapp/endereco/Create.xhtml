@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="EnderecoCreateDlg" widgetVar="EnderecoCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateEnderecoTitle}">
+            <h:form id="EnderecoCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{enderecoController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateEnderecoLabel_idEndereco}" for="idEndereco" />
+                        <p:inputText id="idEndereco" value="#{enderecoController.selected.idEndereco}" title="#{bundle.CreateEnderecoTitle_idEndereco}" required="true" requiredMessage="#{bundle.CreateEnderecoRequiredMessage_idEndereco}"/>
+                        <p:outputLabel value="#{bundle.CreateEnderecoLabel_idOrigem}" for="idOrigem" />
+                        <p:inputText id="idOrigem" value="#{enderecoController.selected.idOrigem}" title="#{bundle.CreateEnderecoTitle_idOrigem}" required="true" requiredMessage="#{bundle.CreateEnderecoRequiredMessage_idOrigem}"/>
+                        <p:outputLabel value="#{bundle.CreateEnderecoLabel_rua}" for="rua" />
+                        <p:inputText id="rua" value="#{enderecoController.selected.rua}" title="#{bundle.CreateEnderecoTitle_rua}" />
+                        <p:outputLabel value="#{bundle.CreateEnderecoLabel_bairro}" for="bairro" />
+                        <p:inputText id="bairro" value="#{enderecoController.selected.bairro}" title="#{bundle.CreateEnderecoTitle_bairro}" />
+                        <p:outputLabel value="#{bundle.CreateEnderecoLabel_cidade}" for="cidade" />
+                        <p:inputText id="cidade" value="#{enderecoController.selected.cidade}" title="#{bundle.CreateEnderecoTitle_cidade}" />
+                        <p:outputLabel value="#{bundle.CreateEnderecoLabel_estado}" for="estado" />
+                        <p:inputText id="estado" value="#{enderecoController.selected.estado}" title="#{bundle.CreateEnderecoTitle_estado}" />
+                        <p:outputLabel value="#{bundle.CreateEnderecoLabel_complemente}" for="complemente" />
+                        <p:inputText id="complemente" value="#{enderecoController.selected.complemente}" title="#{bundle.CreateEnderecoTitle_complemente}" />
+                        <p:outputLabel value="#{bundle.CreateEnderecoLabel_cep}" for="cep" />
+                        <p:inputText id="cep" value="#{enderecoController.selected.cep}" title="#{bundle.CreateEnderecoTitle_cep}" />
+                        <p:outputLabel value="#{bundle.CreateEnderecoLabel_fktipoEndereco}" for="fktipoEndereco" />
+                        <p:selectOneMenu id="fktipoEndereco" value="#{enderecoController.selected.fktipoEndereco}" >
+                            <f:selectItems value="#{tipoenderecoController.itemsAvailableSelectOne}"
+                                           var="fktipoEnderecoItem"
+                                           itemValue="#{fktipoEnderecoItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{enderecoController.create}" value="#{bundle.Save}" update="display,:EnderecoListForm:datalist,:growl" oncomplete="handleSubmit(args,'EnderecoCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="EnderecoCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

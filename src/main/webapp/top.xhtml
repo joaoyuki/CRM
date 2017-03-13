@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <h:body>
+        <ui:composition>
+            <h:form>
+                
+        <div id="apresentacao" >
+             <img src="/Ecommerce/resources/images/logo.png" alt="logo" /> <br/> 
+        </div>
+
+        <div id="loginDiv" style="text-align: right">
+            #{userFace.userLoged}
+<!--            <h:outputText rendered="#{userFace.userLoged}" value="Bem vindo: #{userFace.loggedUser.name}" ></h:outputText>
+            <h:commandLink rendered="#{userFace.userLoged}" value="Sair" action="#{userFace.doCancel()}" ></h:commandLink> 
+            
+            <h:commandLink rendered="#{!userFace.userLoged}" value="Crie um usuário para acessar o sistema" action="#{userFace.createNewLogin}" ></h:commandLink> &nbsp;
+            <h:commandLink rendered="#{!userFace.userLoged}" value="Entrar no sistema" action="#{userFace.doLoginSystem()}" ></h:commandLink>-->
+        </div>   
+                </h:form>
+        </ui:composition>
+    </h:body>
+
+</html>

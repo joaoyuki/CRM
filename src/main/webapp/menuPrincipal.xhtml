@@ -1,0 +1,69 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+    <h:body>
+
+        <div id="cabecalho">
+            <p:panel style="text-align: center;" >
+
+                <p:outputLabel value="CRM Quality"  /> <br />
+                <p:outputLabel value="Usuário logado:" style="text-align: right !important;"  />
+
+            </p:panel>
+            
+        </div>
+        <div id="login">
+            <h:form>
+                <h:messages id="messages" ></h:messages>
+    <p:menubar>
+        <p:submenu label="Home" icon="ui-icon-document">
+        </p:submenu>
+ 
+        <p:submenu label="Recursos humanos">
+            <p:submenu label="Cadastros">
+                <p:menuitem value="Funcionário" url="#" />
+            </p:submenu>
+            
+            
+            <p:submenu label="Relatórios" >
+                <p:menuitem  value="Funcionários ativos" url="#"  />
+                <p:menuitem  value="Funcionários desligados" url="#"  />
+                <p:menuitem  value="Banco de dados de candidatos" url="#"  />
+            </p:submenu>
+            
+        </p:submenu>
+        
+        <p:submenu label="Documentos" >
+            <p:menuitem value="Administrativo" />
+            <p:menuitem value="Comercial" />
+            <p:menuitem value="Recepção" />
+            <p:menuitem value="Técnica" />
+            <p:menuitem value="Clínico" />
+            <p:menuitem value="Faturamento" />
+            <p:menuitem value="Recursos Humanos" />
+            <p:menuitem value="Logistica" />
+            <p:menuitem value="PoP - Documentos" />
+            <p:menuitem value="RNC" />
+        </p:submenu>
+        
+        <p:submenu label="Atendimento" >
+        </p:submenu>        
+ 
+        <p:menuitem value="Sair" url="http://www.primefaces.org" icon="ui-icon-close" />
+ 
+        <f:facet name="options">
+            <p:inputText style="margin-right:10px" placeholder="Search"/>
+            <p:commandButton type="button" value="Logout" icon="ui-icon-extlink" />
+        </f:facet>
+    </p:menubar>    
+        </h:form>
+        </div>
+    </h:body>
+
+    </ui:composition>
+</html>

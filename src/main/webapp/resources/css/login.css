@@ -1,0 +1,13 @@
+.login{
+    margin-left: 30%;
+    margin-right: 30%;
+}
+
+.loginTable{
+    margin: 0 auto;
+    width: 250px;
+}
+
+.error{
+    color: crimson;
+}

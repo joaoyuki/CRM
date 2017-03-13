@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="FuncionarioEditDlg" widgetVar="FuncionarioEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditFuncionarioTitle}">
+            <h:form id="FuncionarioEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="4" rendered="#{funcionarioController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditFuncionarioLabel_nomeFuncionario}" for="nomeFuncionario" />
+                        <p:inputText id="nomeFuncionario" value="#{funcionarioController.selected.nomeFuncionario}" title="#{bundle.EditFuncionarioTitle_nomeFuncionario}" required="true" requiredMessage="#{bundle.EditFuncionarioRequiredMessage_nomeFuncionario}"/>
+                        <p:outputLabel value="#{bundle.EditFuncionarioLabel_sobrenomeFuncionario}" for="sobrenomeFuncionario" />
+                        <p:inputText id="sobrenomeFuncionario" value="#{funcionarioController.selected.sobrenomeFuncionario}" title="#{bundle.EditFuncionarioTitle_sobrenomeFuncionario}" required="true" requiredMessage="#{bundle.EditFuncionarioRequiredMessage_sobrenomeFuncionario}"/>
+                        <p:outputLabel value="#{bundle.EditFuncionarioLabel_rg}" for="rg" />
+                        <p:inputText id="rg" value="#{funcionarioController.selected.rg}" title="#{bundle.EditFuncionarioTitle_rg}" />
+                        <p:outputLabel value="#{bundle.EditFuncionarioLabel_cpf}" for="cpf" />
+                        <p:inputText id="cpf" value="#{funcionarioController.selected.cpf}" title="#{bundle.EditFuncionarioTitle_cpf}" />
+                        <p:outputLabel value="#{bundle.EditFuncionarioLabel_ramal}" for="ramal" />
+                        <p:inputText id="ramal" value="#{funcionarioController.selected.ramal}" title="#{bundle.EditFuncionarioTitle_ramal}" />
+                        <p:outputLabel value="#{bundle.EditFuncionarioLabel_dataHoraCriacao}" for="dataHoraCriacao" />
+                        <p:calendar id="dataHoraCriacao" pattern="MM/dd/yyyy HH:mm:ss" value="#{funcionarioController.selected.dataHoraCriacao}" title="#{bundle.EditFuncionarioTitle_dataHoraCriacao}" required="true" requiredMessage="#{bundle.EditFuncionarioRequiredMessage_dataHoraCriacao}" showOn="button"/>
+                        <p:outputLabel value="#{bundle.EditFuncionarioLabel_dataHoraEdicao}" for="dataHoraEdicao" />
+                        <p:calendar id="dataHoraEdicao" pattern="MM/dd/yyyy HH:mm:ss" value="#{funcionarioController.selected.dataHoraEdicao}" title="#{bundle.EditFuncionarioTitle_dataHoraEdicao}" required="true" requiredMessage="#{bundle.EditFuncionarioRequiredMessage_dataHoraEdicao}" showOn="button"/>
+                        <p:outputLabel value="#{bundle.EditFuncionarioLabel_sexo}" for="sexo" />
+                        
+                        <p:selectOneMenu id="sexo" value="#{funcionarioController.selected.sexo}" >
+                            <f:selectItem itemLabel="Feminino" itemValue="f" />
+                            <f:selectItem itemLabel="Masculino" itemValue="m" />
+                        </p:selectOneMenu>                        
+                        
+                        <p:outputLabel value="#{bundle.EditFuncionarioLabel_dataNascimento}" for="dataNascimento" />
+                        <p:calendar id="dataNascimento" pattern="MM/dd/yyyy" value="#{funcionarioController.selected.dataNascimento}" title="#{bundle.EditFuncionarioTitle_dataNascimento}" required="true" requiredMessage="#{bundle.EditFuncionarioRequiredMessage_dataNascimento}" showOn="button"/>
+                        
+                        <p:outputLabel value="#{bundle.EditFuncionarioLabel_estadoCivil}" for="estadoCivil" />
+                        <p:selectOneMenu id="estadoCivil" value="#{funcionarioController.selected.estadoCivil}">
+                            <f:selectItem itemLabel="Solteiro(a)" itemValue="s" />
+                            <f:selectItem itemLabel="Casado(a)" itemValue="c" />
+                            <f:selectItem itemLabel="Viuvo(a)" itemValue="v" />
+                        </p:selectOneMenu>
+                        
+                        <p:outputLabel value="#{bundle.CreateFuncionarioLabel_dataCasamento}" for="dataCasamento" />
+                        <p:calendar id="dataCasamento" pattern="MM/dd/yyyy" value="#{funcionarioController.selected.dataCasamento}" title="#{bundle.EditFuncionarioTitle_dataCasamento}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.EditFuncionarioLabel_dependentes}" for="dependentes" />
+                        <p:selectOneRadio id="dependentes" value="#{funcionarioController.selected.dependentes}">
+                                <f:selectItem itemLabel="Sim" itemValue="1" />
+                                <f:selectItem itemLabel="Não" itemValue="2" />
+                            </p:selectOneRadio>                            
+                        <p:outputLabel value="#{bundle.EditFuncionarioLabel_emailEmpresa}" for="emailEmpresa" />
+                        <p:inputText id="emailEmpresa" value="#{funcionarioController.selected.emailEmpresa}" title="#{bundle.EditFuncionarioTitle_emailEmpresa}" />
+                        <p:outputLabel value="#{bundle.EditFuncionarioLabel_emailPessoal}" for="emailPessoal" />
+                        <p:inputText id="emailPessoal" value="#{funcionarioController.selected.emailPessoal}" title="#{bundle.EditFuncionarioTitle_emailPessoal}" />
+                        
+                        <p:outputLabel value="#{bundle.EditFuncionarioLabel_grauEscolar}" for="grauEscolar" />
+                        <p:selectOneMenu id="grauEscolar" value="#{funcionarioController.selected.grauEscolar}">
+                            <f:selectItem itemLabel="Ensino fundamental" itemValue="Ensino fundamental" />
+                            <f:selectItem itemLabel="Ensino médio" itemValue="Ensino médio" />
+                            <f:selectItem itemLabel="Ensino superior" itemValue="Ensino superior" />
+                            <f:selectItem itemLabel="Pós Graduação (MBA / Mestrado / Doutorado)" itemValue="Pós Graduação (MBA / Mestrado / Doutorado)" />
+                            <f:selectItem itemLabel="PHD" itemValue="PHD" />
+                        </p:selectOneMenu> 
+                        
+                        <p:outputLabel value="#{bundle.EditFuncionarioLabel_planoSaudeInterno}" for="planoSaudeInterno" />
+                            <p:selectOneRadio id="planoSaudeInterno" value="#{funcionarioController.selected.planoSaudeInterno}">
+                                <f:selectItem itemLabel="Sim" itemValue="1" />
+                                <f:selectItem itemLabel="Não" itemValue="2" />
+                            </p:selectOneRadio>  
+                        <p:outputLabel value="#{bundle.EditFuncionarioLabel_dataAdmissão}" for="dataAdmissão" />
+                        <p:calendar id="dataAdmissão" pattern="MM/dd/yyyy HH:mm:ss" value="#{funcionarioController.selected.dataAdmissão}" title="#{bundle.EditFuncionarioTitle_dataAdmissão}" required="true" requiredMessage="#{bundle.EditFuncionarioRequiredMessage_dataAdmissão}" showOn="button"/>
+                        <p:outputLabel value="#{bundle.EditFuncionarioLabel_dataDemissao}" for="dataDemissao" />
+                        <p:calendar id="dataDemissao" pattern="MM/dd/yyyy HH:mm:ss" value="#{funcionarioController.selected.dataDemissao}" title="#{bundle.EditFuncionarioTitle_dataDemissao}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.EditFuncionarioLabel_salarioBruto}" for="salarioBruto" />
+                        <p:inputText id="salarioBruto" value="#{funcionarioController.selected.salarioBruto}" title="#{bundle.EditFuncionarioTitle_salarioBruto}" />
+                        <p:outputLabel value="#{bundle.EditFuncionarioLabel_numeroCarteiraTrabalho}" for="numeroCarteiraTrabalho" />
+                        <p:inputText id="numeroCarteiraTrabalho" value="#{funcionarioController.selected.numeroCarteiraTrabalho}" title="#{bundle.EditFuncionarioTitle_numeroCarteiraTrabalho}" />
+                        <p:outputLabel value="#{bundle.EditFuncionarioLabel_fkidCargo}" for="fkidCargo" />
+                        <p:selectOneMenu id="fkidCargo" value="#{funcionarioController.selected.fkidCargo}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{cargoController.itemsAvailableSelectOne}"
+                                           var="fkidCargoItem"
+                                           itemValue="#{fkidCargoItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditFuncionarioLabel_fkidSetor}" for="fkidSetor" />
+                        <p:selectOneMenu id="fkidSetor" value="#{funcionarioController.selected.fkidSetor}" required="true" requiredMessage="#{bundle.EditFuncionarioRequiredMessage_fkidSetor}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{setorController.itemsAvailableSelectOne}"
+                                           var="fkidSetorItem"
+                                           itemValue="#{fkidSetorItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{funcionarioController.update}" value="#{bundle.Save}" update="display,:FuncionarioListForm:datalist,:growl" oncomplete="handleSubmit(args, 'FuncionarioEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="FuncionarioEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

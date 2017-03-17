@@ -12,8 +12,6 @@
             <h:form id="UnidadeCreateForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{unidadeController.selected != null}">
-                        <p:outputLabel value="#{bundle.CreateUnidadeLabel_id}" for="id" />
-                        <p:inputText id="id" value="#{unidadeController.selected.id}" title="#{bundle.CreateUnidadeTitle_id}" required="true" requiredMessage="#{bundle.CreateUnidadeRequiredMessage_id}"/>
                         <p:outputLabel value="#{bundle.CreateUnidadeLabel_nome}" for="nome" />
                         <p:inputText id="nome" value="#{unidadeController.selected.nome}" title="#{bundle.CreateUnidadeTitle_nome}" required="true" requiredMessage="#{bundle.CreateUnidadeRequiredMessage_nome}"/>
                     </p:panelGrid>

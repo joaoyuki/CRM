@@ -12,18 +12,8 @@
             <h:form id="SetorEditForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{setorController.selected != null}">
-                        <p:outputLabel value="#{bundle.EditSetorLabel_idSetor}" for="idSetor" />
-                        <p:inputText id="idSetor" value="#{setorController.selected.idSetor}" title="#{bundle.EditSetorTitle_idSetor}" required="true" requiredMessage="#{bundle.EditSetorRequiredMessage_idSetor}"/>
                         <p:outputLabel value="#{bundle.EditSetorLabel_descricaoSetor}" for="descricaoSetor" />
                         <p:inputText id="descricaoSetor" value="#{setorController.selected.descricaoSetor}" title="#{bundle.EditSetorTitle_descricaoSetor}" required="true" requiredMessage="#{bundle.EditSetorRequiredMessage_descricaoSetor}"/>
-                        <p:outputLabel value="#{bundle.EditSetorLabel_dataHoraCriacao}" for="dataHoraCriacao" />
-                        <p:calendar id="dataHoraCriacao" pattern="MM/dd/yyyy HH:mm:ss" value="#{setorController.selected.dataHoraCriacao}" title="#{bundle.EditSetorTitle_dataHoraCriacao}" required="true" requiredMessage="#{bundle.EditSetorRequiredMessage_dataHoraCriacao}" showOn="button"/>
-                        <p:outputLabel value="#{bundle.EditSetorLabel_dataHoraEdicao}" for="dataHoraEdicao" />
-                        <p:calendar id="dataHoraEdicao" pattern="MM/dd/yyyy HH:mm:ss" value="#{setorController.selected.dataHoraEdicao}" title="#{bundle.EditSetorTitle_dataHoraEdicao}" required="true" requiredMessage="#{bundle.EditSetorRequiredMessage_dataHoraEdicao}" showOn="button"/>
-                        <p:outputLabel value="#{bundle.EditSetorLabel_usuarioCriacao}" for="usuarioCriacao" />
-                        <p:inputText id="usuarioCriacao" value="#{setorController.selected.usuarioCriacao}" title="#{bundle.EditSetorTitle_usuarioCriacao}" required="true" requiredMessage="#{bundle.EditSetorRequiredMessage_usuarioCriacao}"/>
-                        <p:outputLabel value="#{bundle.EditSetorLabel_usuarioEdicao}" for="usuarioEdicao" />
-                        <p:inputText id="usuarioEdicao" value="#{setorController.selected.usuarioEdicao}" title="#{bundle.EditSetorTitle_usuarioEdicao}" required="true" requiredMessage="#{bundle.EditSetorRequiredMessage_usuarioEdicao}"/>
                     </p:panelGrid>
                     <p:commandButton actionListener="#{setorController.update}" value="#{bundle.Save}" update="display,:SetorListForm:datalist,:growl" oncomplete="handleSubmit(args, 'SetorEditDialog');"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="SetorEditDialog.hide()"/>

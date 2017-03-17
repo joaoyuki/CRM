@@ -29,4 +29,10 @@ public class UnidadeFacade extends AbstractFacade<Unidade> {
         super(Unidade.class);
     }
     
+    public void salvarUnidade(Unidade unidade){
+        
+        em.merge(unidade);
+        
+    }
+    
 }

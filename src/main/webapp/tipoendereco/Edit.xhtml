@@ -12,8 +12,6 @@
             <h:form id="TipoenderecoEditForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{tipoenderecoController.selected != null}">
-                        <p:outputLabel value="#{bundle.EditTipoenderecoLabel_idTipoEndereco}" for="idTipoEndereco" />
-                        <p:inputText id="idTipoEndereco" value="#{tipoenderecoController.selected.idTipoEndereco}" title="#{bundle.EditTipoenderecoTitle_idTipoEndereco}" required="true" requiredMessage="#{bundle.EditTipoenderecoRequiredMessage_idTipoEndereco}"/>
                         <p:outputLabel value="#{bundle.EditTipoenderecoLabel_descricaoTipoEndereco}" for="descricaoTipoEndereco" />
                         <p:inputText id="descricaoTipoEndereco" value="#{tipoenderecoController.selected.descricaoTipoEndereco}" title="#{bundle.EditTipoenderecoTitle_descricaoTipoEndereco}" required="true" requiredMessage="#{bundle.EditTipoenderecoRequiredMessage_descricaoTipoEndereco}"/>
                     </p:panelGrid>

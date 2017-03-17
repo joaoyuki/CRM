@@ -85,10 +85,12 @@ public class UnidadeController implements Serializable {
         if (selected != null) {
             setEmbeddableKeys();
             try {
-                if (persistAction != PersistAction.DELETE) {
+                if (persistAction == PersistAction.UPDATE) {
                     getFacade().edit(selected);
-                } else {
+                } else if (persistAction == PersistAction.DELETE) {
                     getFacade().remove(selected);
+                } else {
+                    
                 }
                 JsfUtil.addSuccessMessage(successMessage);
             } catch (EJBException ex) {

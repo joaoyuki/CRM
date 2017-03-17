@@ -37,7 +37,7 @@
                         <h:outputText value="#{bundle.ViewDependentesLabel_usuarioEdicao}"/>
                         <h:outputText value="#{dependentesController.selected.usuarioEdicao}" title="#{bundle.ViewDependentesTitle_usuarioEdicao}"/>
                         <h:outputText value="#{bundle.ViewDependentesLabel_fkidFuncionario}"/>
-                        <h:outputText value="#{dependentesController.selected.fkidFuncionario}" title="#{bundle.ViewDependentesTitle_fkidFuncionario}"/>
+                        <h:outputText value="#{dependentesController.selected.fkidFuncionario.nomeFuncionario}" title="#{bundle.ViewDependentesTitle_fkidFuncionario}"/>
                     </p:panelGrid>
                     <p:commandButton value="#{bundle.Close}" onclick="DependentesViewDialog.hide()"/>
                 </h:panelGroup>

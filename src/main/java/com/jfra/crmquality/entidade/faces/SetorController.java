@@ -85,10 +85,12 @@ public class SetorController implements Serializable {
         if (selected != null) {
             setEmbeddableKeys();
             try {
-                if (persistAction != PersistAction.DELETE) {
+                if (persistAction == PersistAction.UPDATE) {
                     getFacade().edit(selected);
-                } else {
+                } else if (persistAction == PersistAction.DELETE) {
                     getFacade().remove(selected);
+                } else {
+                    getFacade().salvarSetor(selected);
                 }
                 JsfUtil.addSuccessMessage(successMessage);
             } catch (EJBException ex) {

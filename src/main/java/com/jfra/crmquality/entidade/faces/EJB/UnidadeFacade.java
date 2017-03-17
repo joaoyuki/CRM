@@ -29,6 +29,7 @@ public class UnidadeFacade extends AbstractFacade<Unidade> {
         super(Unidade.class);
     }
     
+    //Teste git
     public void salvarUnidade(Unidade unidade){
         
         em.merge(unidade);

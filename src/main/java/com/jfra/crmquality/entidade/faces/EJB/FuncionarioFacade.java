@@ -5,9 +5,13 @@
  */
 package com.jfra.crmquality.entidade.faces.EJB;
 
+import com.jfra.crm.quality.DAO.FuncionarioDAOImpl;
 import com.jfra.crmquality.entidade.Funcionario;
+
 import java.util.Date;
+
 import javax.ejb.Stateless;
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
@@ -16,19 +20,10 @@ import javax.persistence.PersistenceContext;
  * @author AbadaCapoeira
  */
 @Stateless
-public class FuncionarioFacade extends AbstractFacade<Funcionario> {
+public class FuncionarioFacade{
 
-    @PersistenceContext(unitName = "liquor")
-    private EntityManager em;
-
-    @Override
-    protected EntityManager getEntityManager() {
-        return em;
-    }
-
-    public FuncionarioFacade() {
-        super(Funcionario.class);
-    }
+	@Inject
+	FuncionarioDAOImpl funcionarioDAOImpl; 
     
     
     /**
@@ -41,7 +36,8 @@ public class FuncionarioFacade extends AbstractFacade<Funcionario> {
         funcionario.setDataHoraEdicao(new Date());
         funcionario.setUsuarioCriacao(1);
         funcionario.setUsuarioEdicao(1);
-        em.merge(funcionario);
+        funcionarioDAOImpl.salvarFuncionario(funcionario);
+        
         
     }
     

@@ -5,20 +5,33 @@
  */
 package com.jfra.crmquality.entidade.faces.EJB;
 
+import com.jfra.crm.quality.DAO.SetorDAOImpl;
 import com.jfra.crmquality.entidade.Setor;
+
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.runners.MockitoJUnitRunner;
 import static org.junit.Assert.*;
 
 /**
  *
  * @author AbadaCapoeira
  */
-public class SetorFacadeTeste extends SetorFacade{
-    
+@RunWith(MockitoJUnitRunner.class)
+public class SetorFacadeTeste{
+   
+	@InjectMocks
+	SetorFacade setorFacade;
+	
+	@Mock
+	SetorDAOImpl setorDAO;
+	
     public SetorFacadeTeste() {
     }
     
@@ -32,25 +45,41 @@ public class SetorFacadeTeste extends SetorFacade{
     
     @Before
     public void setUp() {
+    	
     }
     
     @After
     public void tearDown() {
     }
-
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
-    // @Test
-    // public void hello() {}
     
+    /**
+     * Valida se o setor a ser salvo vai ter data e hora de criação e edição
+     */
     @Test
-    public void salvarSetorTeste(){
-        
-        Setor setor = new Setor();
-        setor.setDescricaoSetor("Setor de teste");
-        salvarSetor(setor);
-        
-        
+    public void salvarSetorTeste_dataHoraCriacaoEdicao(){
+
+        Setor setorRetorno = new Setor();        
+        setorFacade.salvarSetor(setorRetorno);    
+
+        assertNotEquals(setorRetorno.getDataHoraCriacao(), null);
+        assertNotEquals(setorRetorno.getDataHoraEdicao(), null);
+
     }
+    
+    /**
+     * Valida se o setor a ser salvo vai ter o usuário de criação e edição
+     */
+    @Test
+    public void salvarSetorTeste_usuarioCriacaoEdicao(){
+
+        Setor setorRetorno = new Setor();        
+        setorFacade.salvarSetor(setorRetorno);    
+
+        assertNotEquals(setorRetorno.getUsuarioCriacao(), null);
+        assertNotEquals(setorRetorno.getUsuarioEdicao(), null);
+        assertNotEquals(setorRetorno.getUsuarioCriacao(), 0);
+
+    }    
+    
+    
 }

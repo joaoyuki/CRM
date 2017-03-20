@@ -5,10 +5,14 @@
  */
 package com.jfra.crmquality.entidade.faces.EJB;
 
+import com.jfra.crm.quality.DAO.SetorDAOImpl;
 import com.jfra.crmquality.entidade.Setor;
+
 import java.time.LocalDateTime;
 import java.util.Date;
+
 import javax.ejb.Stateless;
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
@@ -17,20 +21,14 @@ import javax.persistence.PersistenceContext;
  * @author AbadaCapoeira
  */
 @Stateless
-public class SetorFacade extends AbstractFacade<Setor> {
+public class SetorFacade{
 
     @PersistenceContext(unitName = "liquor")
     private EntityManager em;
-
-    @Override
-    protected EntityManager getEntityManager() {
-        return em;
-    }
-
-    public SetorFacade() {
-        super(Setor.class);
-    }
     
+    @Inject
+    public SetorDAOImpl setorDAO;
+   
     /**
      * Método que salva um novo setor
      * @param setor 
@@ -41,8 +39,9 @@ public class SetorFacade extends AbstractFacade<Setor> {
         setor.setDataHoraEdicao(new Date());
         setor.setUsuarioCriacao(1);
         setor.setUsuarioEdicao(1);
-        em.merge(setor);
+        setorDAO.salvarSetor(setor);
         
     }
+    
     
 }

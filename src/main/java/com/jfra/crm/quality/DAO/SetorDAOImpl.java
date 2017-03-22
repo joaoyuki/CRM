@@ -14,7 +14,7 @@ public class SetorDAOImpl implements SetorDAO{
 	@Override
 	public Setor salvarSetor(Setor setor) {
 		
-		em.merge(setor);
+		em.persist(setor);
 		
 		return setor;
 	}

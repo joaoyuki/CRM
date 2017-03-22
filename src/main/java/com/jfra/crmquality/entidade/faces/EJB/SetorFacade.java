@@ -6,6 +6,7 @@
 package com.jfra.crmquality.entidade.faces.EJB;
 
 import com.jfra.crm.quality.DAO.SetorDAOImpl;
+import com.jfra.crmquality.entidade.Funcionario;
 import com.jfra.crmquality.entidade.Setor;
 
 import java.time.LocalDateTime;
@@ -22,9 +23,6 @@ import javax.persistence.PersistenceContext;
  */
 @Stateless
 public class SetorFacade{
-
-    @PersistenceContext(unitName = "liquor")
-    private EntityManager em;
     
     @Inject
     public SetorDAOImpl setorDAO;
@@ -42,6 +40,5 @@ public class SetorFacade{
         setorDAO.salvarSetor(setor);
         
     }
-    
     
 }

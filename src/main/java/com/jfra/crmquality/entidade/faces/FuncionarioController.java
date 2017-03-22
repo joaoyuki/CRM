@@ -1,20 +1,23 @@
 package com.jfra.crmquality.entidade.faces;
 
+import com.jfra.crm.quality.DAO.FuncionarioDAOImpl;
 import com.jfra.crmquality.entidade.Funcionario;
 import com.jfra.crmquality.entidade.faces.util.JsfUtil;
 import com.jfra.crmquality.entidade.faces.util.JsfUtil.PersistAction;
 import com.jfra.crmquality.entidade.faces.EJB.FuncionarioFacade;
+
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-
 import java.io.Serializable;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 import javax.ejb.EJB;
 import javax.ejb.EJBException;
+import javax.inject.Inject;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.application.FacesMessage;
@@ -22,6 +25,7 @@ import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
+
 import org.apache.commons.io.IOUtils;
 import org.primefaces.event.FileUploadEvent;
 import org.primefaces.model.DefaultStreamedContent;
@@ -34,6 +38,7 @@ public class FuncionarioController implements Serializable {
 
     @EJB
     private com.jfra.crmquality.entidade.faces.EJB.FuncionarioFacade ejbFacade;
+
     
     private List<Funcionario> items = null;
     private Funcionario selected;
@@ -86,7 +91,7 @@ public class FuncionarioController implements Serializable {
 
     public List<Funcionario> getItems() {
         if (items == null) {
-            items = getFacade().findAll();
+            items = getFacade().listaTodosFuncionarios();
         }
         return items;
     }
@@ -123,9 +128,9 @@ public class FuncionarioController implements Serializable {
             setEmbeddableKeys();
             try {
                 if (persistAction == PersistAction.UPDATE) {
-                    getFacade().edit(selected);
+                    getFacade().editarFuncionario(selected);
                 } else if (persistAction == PersistAction.DELETE) {
-                    getFacade().remove(selected);
+                    getFacade().apagaFuncionario(selected);
                 } else {
                     getFacade().salvarFuncionario(selected);
                 }
@@ -164,15 +169,15 @@ public class FuncionarioController implements Serializable {
     
 
     public Funcionario getFuncionario(java.lang.Integer id) {
-        return getFacade().find(id);
+        return getFacade().buscaFuncionarioID(id);
     }
 
     public List<Funcionario> getItemsAvailableSelectMany() {
-        return getFacade().findAll();
+        return getFacade().listaTodosFuncionarios();
     }
 
     public List<Funcionario> getItemsAvailableSelectOne() {
-        return getFacade().findAll();
+        return getFacade().listaTodosFuncionarios();
     }
 
     @FacesConverter(forClass = Funcionario.class)

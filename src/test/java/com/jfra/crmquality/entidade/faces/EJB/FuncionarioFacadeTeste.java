@@ -69,5 +69,25 @@ public class FuncionarioFacadeTeste {
 		assertNotEquals(new Integer(0) ,funcionario.getUsuarioEdicao());
 		
 	}
+	
+	@Test
+	public void testEditarFuncionario_dataHoraEdicao(){
+		
+		Funcionario funcionario = new Funcionario();
+		
+		funcionarioFacade.editarFuncionario(funcionario);
+		
+		assertNotNull(funcionario.getDataHoraEdicao());
+		
+	}
+	
+	@Test
+	public void testListaTodosFuncionarios(){
+		
+		funcionarioFacade.listaTodosFuncionarios();
+		
+	}
+	
+	
 
 }

@@ -70,6 +70,9 @@ public class FuncionarioFacadeTeste {
 		
 	}
 	
+	/**
+	 * Método que testa se o usuário editado possui data e hora e edição
+	 */
 	@Test
 	public void testEditarFuncionario_dataHoraEdicao(){
 		
@@ -81,13 +84,18 @@ public class FuncionarioFacadeTeste {
 		
 	}
 	
+	/**
+	 * Método que teste se o foi salvo o ID do usuário que editou o funcionário
+	 */
 	@Test
-	public void testListaTodosFuncionarios(){
+	public void editarFuncionarioTest_UsuarioEdicao(){
 		
-		funcionarioFacade.listaTodosFuncionarios();
+		Funcionario funcionario = new Funcionario();
+		
+		funcionarioFacade.editarFuncionario(funcionario);
+		
+		assertNotNull(funcionario.getUsuarioEdicao());
 		
 	}
-	
-	
 
 }

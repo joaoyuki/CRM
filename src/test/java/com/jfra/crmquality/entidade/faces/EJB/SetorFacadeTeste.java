@@ -61,8 +61,8 @@ public class SetorFacadeTeste{
         Setor setorRetorno = new Setor();        
         setorFacade.salvarSetor(setorRetorno);    
 
-        assertNotEquals(setorRetorno.getDataHoraCriacao(), null);
-        assertNotEquals(setorRetorno.getDataHoraEdicao(), null);
+        assertNotEquals(null, setorRetorno.getDataHoraCriacao());
+        assertNotEquals(null, setorRetorno.getDataHoraEdicao());
 
     }
     
@@ -75,11 +75,34 @@ public class SetorFacadeTeste{
         Setor setorRetorno = new Setor();        
         setorFacade.salvarSetor(setorRetorno);    
 
-        assertNotEquals(setorRetorno.getUsuarioCriacao(), null);
-        assertNotEquals(setorRetorno.getUsuarioEdicao(), null);
-        assertNotEquals(setorRetorno.getUsuarioCriacao(), 0);
+        assertNotEquals(null, setorRetorno.getUsuarioCriacao());
+        assertNotEquals(null, setorRetorno.getUsuarioEdicao());
+        assertNotEquals(0, setorRetorno.getUsuarioCriacao());
 
-    }    
+    }
+    
+    /**
+     * Teste que valida se salvou o usuário que fez a edição do setor
+     */
+    @Test
+    public void editaSetorTeste_usuarioEdicao(){
+    	
+    	Setor setor = new Setor();
+    	setorFacade.editarSetor(setor);
+    	
+    	assertNotEquals(0, setor.getUsuarioEdicao());
+    	
+    }
+    
+    @Test
+    public void editaSetorTeste_daraHoraEdicao(){
+    	
+    	Setor setor = new Setor();
+    	setorFacade.editarSetor(setor);
+    	
+    	assertNotEquals(0 ,setor.getDataHoraEdicao());
+    	
+    }
     
     
 }

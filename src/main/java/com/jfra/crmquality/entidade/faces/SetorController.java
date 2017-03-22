@@ -76,7 +76,7 @@ public class SetorController implements Serializable {
 
     public List<Setor> getItems() {
         if (items == null) {
-            items = getFacade().findAll();
+            items = getFacade().listaTodosSetores();
         }
         return items;
     }
@@ -86,9 +86,9 @@ public class SetorController implements Serializable {
             setEmbeddableKeys();
             try {
                 if (persistAction == PersistAction.UPDATE) {
-                    getFacade().edit(selected);
+                    getFacade().editarSetor(selected);
                 } else if (persistAction == PersistAction.DELETE) {
-                    getFacade().remove(selected);
+                    getFacade().apagarSetor(selected);
                 } else {
                     getFacade().salvarSetor(selected);
                 }
@@ -112,15 +112,15 @@ public class SetorController implements Serializable {
     }
 
     public Setor getSetor(java.lang.Integer id) {
-        return getFacade().find(id);
+        return getFacade().buscaSetorID(id);
     }
 
     public List<Setor> getItemsAvailableSelectMany() {
-        return getFacade().findAll();
+        return getFacade().listaTodosSetores();
     }
 
     public List<Setor> getItemsAvailableSelectOne() {
-        return getFacade().findAll();
+        return getFacade().listaTodosSetores();
     }
     
     /**

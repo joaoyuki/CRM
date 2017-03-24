@@ -6,7 +6,7 @@
 package com.jfra.crmquality.entidade.faces;
 
 import com.jfra.crmquality.entidade.Usuario;
-import com.jfra.crmquality.entidade.faces.EJB.UsuarioSessionBean;
+import com.jfra.crmquality.entidade.faces.EJB.UsuarioFacade;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
@@ -29,7 +29,7 @@ public class LoginBean extends BaseCDIBean{
     private static final long serialVersionUID = 1L;
     
     @Inject
-    private UsuarioSessionBean usuarioSessionBean;    
+    private UsuarioFacade usuarioSessionBean;    
     
     @NotNull(message = "O campo login não pode ser nulo")
     private String login;

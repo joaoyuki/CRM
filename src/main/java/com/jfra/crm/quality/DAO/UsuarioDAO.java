@@ -5,6 +5,7 @@
  */
 package com.jfra.crm.quality.DAO;
 
+import com.jfra.crmquality.entidade.HistoricoLoginUsuario;
 import com.jfra.crmquality.entidade.Usuario;
 import java.util.List;
 
@@ -46,5 +47,19 @@ public interface UsuarioDAO {
      * @param usuario 
      */
     public void apagaUsuario(Usuario usuario);
+    
+    /**
+     * Método que busca um usuário pelo nome e senha
+     * @param nome
+     * @param senha
+     * @return 
+     */
+    public Usuario buscaUsuarioPorNomeSenha(String nome, String senha);
+    
+    /**
+     * Método que salva o histórico de acesso do usuário ao sistema
+     * @param historicoLoginUsuario 
+     */
+    public void salvaHistorico(HistoricoLoginUsuario historicoLoginUsuario);
     
 }

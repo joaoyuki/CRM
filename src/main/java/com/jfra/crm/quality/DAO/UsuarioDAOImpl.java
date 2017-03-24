@@ -5,6 +5,7 @@
  */
 package com.jfra.crm.quality.DAO;
 
+import com.jfra.crmquality.entidade.HistoricoLoginUsuario;
 import com.jfra.crmquality.entidade.Usuario;
 import java.util.ArrayList;
 import java.util.List;
@@ -77,6 +78,30 @@ public class UsuarioDAOImpl implements UsuarioDAO{
     public void apagaUsuario(Usuario usuario) {
         
         em.remove(usuario);
+        
+    }
+
+    @Override
+    public Usuario buscaUsuarioPorNomeSenha(String nome, String senha) {
+
+        Usuario usuario = new Usuario();
+        
+        try{
+        usuario = (Usuario) em.createNamedQuery("Usuario.validaLogin")
+                .setParameter("nome", nome)
+                .setParameter("senha", senha)
+                .getSingleResult();
+        }catch(NoResultException e){
+            return null;
+        }
+        
+        return usuario;
+    }
+
+    @Override
+    public void salvaHistorico(HistoricoLoginUsuario historicoLoginUsuario) {
+        
+        em.persist(historicoLoginUsuario);
         
     }
     

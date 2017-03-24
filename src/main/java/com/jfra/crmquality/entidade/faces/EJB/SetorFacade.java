@@ -6,17 +6,13 @@
 package com.jfra.crmquality.entidade.faces.EJB;
 
 import com.jfra.crm.quality.DAO.SetorDAOImpl;
-import com.jfra.crmquality.entidade.Funcionario;
 import com.jfra.crmquality.entidade.Setor;
 
-import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 
 /**
  *
@@ -43,7 +39,7 @@ public class SetorFacade{
     }
     
     /**
-     * Método que lista todos os setores
+     * Mï¿½todo que lista todos os setores
      * @return
      */
     public List<Setor> listaTodosSetores(){
@@ -53,7 +49,7 @@ public class SetorFacade{
     }
     
     /**
-     * Método que busca um setor por ID
+     * Mï¿½todo que busca um setor por ID
      * @param id
      * @return
      */
@@ -64,7 +60,7 @@ public class SetorFacade{
     }
     
     /**
-     * Método que editar um setor
+     * Mï¿½todo que editar um setor
      * @param setor
      */
     public void editarSetor(Setor setor){
@@ -76,7 +72,7 @@ public class SetorFacade{
     }
     
     /**
-     * Método que apaga um setor
+     * Mï¿½todo que apaga um setor
      * @param setor
      */
     public void apagarSetor(Setor setor){

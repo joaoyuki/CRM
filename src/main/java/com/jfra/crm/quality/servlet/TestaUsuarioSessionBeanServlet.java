@@ -7,7 +7,7 @@ package com.jfra.crm.quality.servlet;
 
 import com.jfra.crmquality.entidade.Usuario;
 import com.jfra.crmquality.entidade.UsuarioPK;
-import com.jfra.crmquality.entidade.faces.EJB.UsuarioSessionBean;
+import com.jfra.crmquality.entidade.faces.EJB.UsuarioFacade;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Date;
@@ -26,7 +26,7 @@ import javax.servlet.http.HttpServletResponse;
 public class TestaUsuarioSessionBeanServlet extends HttpServlet {
 
     @EJB
-    private UsuarioSessionBean usuarioSessionBean;
+    private UsuarioFacade usuarioSessionBean;
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>

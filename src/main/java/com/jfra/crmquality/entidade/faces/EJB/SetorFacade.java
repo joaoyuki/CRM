@@ -21,6 +21,9 @@ import javax.inject.Inject;
 @Stateless
 public class SetorFacade{
     
+    /**
+     *
+     */
     @Inject
     public SetorDAOImpl setorDAO;
    

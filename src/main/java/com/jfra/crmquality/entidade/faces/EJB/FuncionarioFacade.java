@@ -7,7 +7,6 @@ package com.jfra.crmquality.entidade.faces.EJB;
 
 import com.jfra.crm.quality.DAO.FuncionarioDAOImpl;
 import com.jfra.crmquality.entidade.Funcionario;
-import com.jfra.crmquality.entidade.Unidade;
 
 import java.util.Date;
 import java.util.List;
@@ -23,12 +22,15 @@ import javax.persistence.PersistenceContext;
  */
 @Stateless
 public class FuncionarioFacade{
-
-	@PersistenceContext(unitName = "liquor")
+    
+    @PersistenceContext(unitName = "liquor")
     private EntityManager em;
 
-	@Inject
-	FuncionarioDAOImpl funcionarioDAOImpl; 
+    //@Inject
+    //FuncionarioDAOImpl funcionarioDAOImpl; 
+    
+    @Inject
+    FuncionarioDAOImpl funcionarioDAOImpl;
     
     /**
      * MÃ©todo que salva um novo funcionÃ¡rio
@@ -46,7 +48,7 @@ public class FuncionarioFacade{
     }
     
     /**
-     * Método que edita um funcionário
+     * Mï¿½todo que edita um funcionï¿½rio
      * @param funcionario
      */
     public void editarFuncionario(Funcionario funcionario){
@@ -58,7 +60,7 @@ public class FuncionarioFacade{
     }
     
     /**
-     * Método que retorna uma lista com todos os funcionários
+     * Mï¿½todo que retorna uma lista com todos os funcionï¿½rios
      * @return {@link List} {@link Funcionario}
      */
     public List<Funcionario> listaTodosFuncionarios(){
@@ -68,7 +70,7 @@ public class FuncionarioFacade{
     }
     
     /**
-     * Método que busca funcionário pelo ID
+     * Mï¿½todo que busca funcionï¿½rio pelo ID
      * @param id
      * @return {@link Funcionario}
      */
@@ -79,7 +81,7 @@ public class FuncionarioFacade{
     }
     
     /**
-     * Método que deleta um funcionário
+     * Mï¿½todo que deleta um funcionï¿½rio
      * @param funcionario
      */
     public void apagaFuncionario(Funcionario funcionario){

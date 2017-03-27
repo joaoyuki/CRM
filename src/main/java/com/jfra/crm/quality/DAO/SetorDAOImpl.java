@@ -8,11 +8,18 @@ import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 
 import com.jfra.crmquality.entidade.Setor;
+import javax.enterprise.context.ApplicationScoped;
 
+
+ @ApplicationScoped
 public class SetorDAOImpl implements SetorDAO{
 
     @PersistenceContext(unitName = "liquor")
     private EntityManager em;
+    
+    public SetorDAOImpl(){
+        
+    }
 	
     
 	@Override

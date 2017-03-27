@@ -9,6 +9,7 @@ import com.jfra.crmquality.entidade.HistoricoLoginUsuario;
 import com.jfra.crmquality.entidade.Usuario;
 import java.util.ArrayList;
 import java.util.List;
+import javax.enterprise.context.ApplicationScoped;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
@@ -17,6 +18,8 @@ import javax.persistence.PersistenceContext;
  *
  * @author AbadaCapoeira
  */
+
+ @ApplicationScoped
 public class UsuarioDAOImpl implements UsuarioDAO{
     
     @PersistenceContext(unitName = "liquor")

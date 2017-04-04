@@ -38,6 +38,26 @@ public class UsuarioFacade {
         
     }
     
+    public void apagaUsuario(Usuario usuario){
+        
+        usuarioDAOImpl.apagaUsuario(usuario);
+        
+    }
+    
+    
+    /**
+     * Método que altera um usuário
+     * @param usuario
+     * @return 
+     */
+    public Usuario editaUsuario(Usuario usuario){
+        
+        usuario.setDataHoraEdicao(new Date());
+        usuarioDAOImpl.editaUsuario(usuario);
+        return usuario;
+        
+    }
+    
     public List<Usuario> getListaUsuarios(){
         return usuarioDAOImpl.listaTodosUsuarios();
     }

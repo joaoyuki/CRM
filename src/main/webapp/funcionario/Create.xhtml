@@ -93,7 +93,9 @@
                                 </p:selectOneMenu>
                             </p:panelGrid>
                             <p:panelGrid columns="2" rendered="#{funcionarioController.selected != null}">
-                                <p:fileUpload fileUploadListener="#{funcionarioController.doUpload}" label="Procurar..." auto="false" mode="advanced" />
+                                <p:fileUpload fileUploadListener="#{funcionarioController.doUpload}" label="Procurar..." auto="false" mode="advanced" fileLimit="1"  >
+                                    <f:attribute name="tipoArquivo" value="foto" />
+                                </p:fileUpload>
                                 <!--<p:messages  severity="info" escape="false" showDetail="true"  autoUpdate="true" closable="true"/>-->
                             </p:panelGrid>
                             <p:commandButton actionListener="#{funcionarioController.create}" value="#{bundle.Save}" update="display,:FuncionarioListForm:datalist,:growl" oncomplete="handleSubmit(args,'FuncionarioCreateDialog');"/>
@@ -103,11 +105,16 @@
                     <p:tab id="documentos" title="Documentos">
                         <h:panelGroup id="painelDocumentos">
                             <p:panelGrid columns="2" rendered="#{funcionarioController.selected != null}">
+                                
                                 <p:outputLabel value="RG" ></p:outputLabel>
-                                <p:fileUpload label="Adicionar imagem do RG" ></p:fileUpload>
+                                <p:fileUpload label="Adicionar imagem do RG" fileUploadListener="#{funcionarioController.doUpload}" auto="false" mode="advanced" fileLimit="1" >
+                                    <f:attribute name="tipoArquivo" value="rg" />
+                                </p:fileUpload>
                                 
                                 <p:outputLabel value="CPF" ></p:outputLabel>
-                                <p:fileUpload label="Adicionar imagem do CPF" ></p:fileUpload>
+                                <p:fileUpload label="Adicionar imagem do CPF" fileLimit="1" >
+                                    <f:attribute name="tipoArquivo" value="cpf" />
+                                </p:fileUpload>
                                 
                                 <p:outputLabel value="Carteira de trabalho" ></p:outputLabel>
                                 <p:fileUpload label="Adicionar imagem da CTPS" ></p:fileUpload>

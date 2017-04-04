@@ -7,10 +7,12 @@ import com.jfra.crmquality.entidade.faces.util.JsfUtil.PersistAction;
 import com.jfra.crmquality.entidade.faces.EJB.FuncionarioFacade;
 
 import java.io.ByteArrayInputStream;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.Serializable;
 import java.util.List;
+import java.util.Map;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -34,10 +36,15 @@ import org.primefaces.model.UploadedFile;
 @Named("funcionarioController")
 @SessionScoped
 public class FuncionarioController implements Serializable {
-
+    
+    public static final String RG = "rg";
+    public static final String FOTO = "foto";
+    public static final String CPF = "cpf";
+    
     @EJB
     private com.jfra.crmquality.entidade.faces.EJB.FuncionarioFacade ejbFacade;
 
+    private UploadedFile teste;
     
     private List<Funcionario> items = null;
     private Funcionario selected;
@@ -102,16 +109,35 @@ public class FuncionarioController implements Serializable {
             FacesContext.getCurrentInstance().addMessage(null, message);
         }
     } 
-    
+ 
+    /**
+     * Método que faz o upload da imagem e salva no objeto
+     * @param fileUploadEvent 
+     */
  public void doUpload(FileUploadEvent fileUploadEvent) { 
+          
+             String tipoFoto = (String)fileUploadEvent.getComponent().getAttributes().get("tipoArquivo");
+
              UploadedFile uploadedFile = fileUploadEvent.getFile();  
              String fileNameUploaded = uploadedFile.getFileName();
              long fileSizeUploaded = uploadedFile.getSize(); 
-             selected.setFoto(uploadedFile.getContents());
+             //selected.setFoto(uploadedFile.getContents());
         try {
             byte[] foto = IOUtils.toByteArray(uploadedFile.getInputstream());
-            System.out.println(foto);
-            selected.setFoto(foto);
+            
+            switch(tipoFoto){
+                case RG: 
+                    selected.setRg_foto(foto);
+                    break;
+                
+                case FOTO:
+                    selected.setFoto(foto);
+                    break;
+                    
+                case CPF:
+                    selected.setCpf_foto(foto);
+                    break;
+            }
 
              String infoAboutFile = "<br/> Arquivo recebido: <b>" +fileNameUploaded +"</b><br/>"+
                  "Tamanho do Arquivo: <b>"+fileSizeUploaded+"</b>";
@@ -177,6 +203,14 @@ public class FuncionarioController implements Serializable {
 
     public List<Funcionario> getItemsAvailableSelectOne() {
         return getFacade().listaTodosFuncionarios();
+    }
+
+    public UploadedFile getTeste() {
+        return teste;
+    }
+
+    public void setTeste(UploadedFile teste) {
+        this.teste = teste;
     }
 
     @FacesConverter(forClass = Funcionario.class)

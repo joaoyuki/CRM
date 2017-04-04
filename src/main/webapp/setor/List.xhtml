@@ -55,18 +55,6 @@
                                 <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
                             </h:outputText>
                         </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListSetorTitle_usuarioCriacao}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.usuarioCriacao}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListSetorTitle_usuarioEdicao}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.usuarioEdicao}"/>
-                        </p:column>
                         <f:facet name="footer">
                             <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{setorController.prepareCreate}" update=":SetorCreateForm" oncomplete="PF('SetorCreateDialog').show()"/>
                             <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{bundle.View}" update=":SetorViewForm" oncomplete="PF('SetorViewDialog').show()" disabled="#{empty setorController.selected}"/>

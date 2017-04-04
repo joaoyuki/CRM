@@ -80,7 +80,7 @@ public class UsuarioDAOImpl implements UsuarioDAO{
     @Override
     public void apagaUsuario(Usuario usuario) {
         
-        em.remove(usuario);
+        em.remove(em.merge(usuario));
         
     }
 

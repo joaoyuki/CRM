@@ -190,6 +190,14 @@ public class Funcionario implements Serializable {
     @JoinColumn(name = "fk_idSetor", referencedColumnName = "idSetor")
     @ManyToOne(optional = false)
     private Setor fkidSetor;
+    
+    @Lob
+    @Column(name = "rg_foto")
+    private byte[] rg_foto;
+    
+    @Lob
+    @Column(name = "cpf_foto")
+    private byte[] cpf_foto;    
 
     public Funcionario() {
     }
@@ -400,6 +408,25 @@ public class Funcionario implements Serializable {
     public void setUsuarioEdicao(Integer usuarioEdicao) {
         this.usuarioEdicao = usuarioEdicao;
     }
+
+    public byte[] getRg_foto() {
+        return rg_foto;
+    }
+
+    public void setRg_foto(byte[] rg_foto) {
+        this.rg_foto = rg_foto;
+    }
+
+    public byte[] getCpf_foto() {
+        return cpf_foto;
+    }
+
+    public void setCpf_foto(byte[] cpf_foto) {
+        this.cpf_foto = cpf_foto;
+    }
+    
+    
+    
 
 //    @XmlTransient
 //    public List<Dependentes> getDependentesList() {

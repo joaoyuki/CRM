@@ -64,8 +64,7 @@ public class FuncionarioDAOImpl implements FuncionarioDAO{
 
 	@Override
 	public void deletaFuncionario(Funcionario funcionario) {
-
-		em.remove(funcionario);
+		em.remove(em.merge(funcionario));
 		
 	}
 

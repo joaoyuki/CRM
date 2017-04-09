@@ -92,7 +92,11 @@
                                            itemValue="#{fkidSetorItem}"/>
                         </p:selectOneMenu>
                     </p:panelGrid>
-                    <p:commandButton actionListener="#{funcionarioController.update}" value="#{bundle.Save}" update="display,:FuncionarioListForm:datalist,:growl" oncomplete="handleSubmit(args, 'FuncionarioEditDialog');"/>
+                    <p:panelGrid columns="2" rendered="#{funcionarioController.selected != null}">
+                        <p:fileUpload fileUploadListener="#{funcionarioController.doUpload}" label="Procurar..." auto="false" mode="advanced" />
+                         <!--<p:messages  severity="info" escape="false" showDetail="true"  autoUpdate="true" closable="true"/>-->
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{funcionarioController.update}" value="#{bundle.Save}" update="display, :growl, :FuncionarioListForm:datalist " oncomplete="handleSubmit(args, 'FuncionarioEditDialog');"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="FuncionarioEditDialog.hide()"/>
                 </h:panelGroup>
             </h:form>

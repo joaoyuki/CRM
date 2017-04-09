@@ -41,6 +41,8 @@ public class FuncionarioController implements Serializable {
     public static final String FOTO = "foto";
     public static final String CPF = "cpf";
     
+    private String imagemAbrir;
+    
     @EJB
     private com.jfra.crmquality.entidade.faces.EJB.FuncionarioFacade ejbFacade;
 
@@ -180,8 +182,32 @@ public class FuncionarioController implements Serializable {
     
     public StreamedContent abrirImagem(Funcionario selected){
         
-        if (selected != null &&  selected.getFoto() != null){
-            InputStream stream = new ByteArrayInputStream(selected.getFoto());
+        
+        if (selected != null &&  selected.getFoto() != null && getImagemAbrir() != null){
+
+            
+            
+                InputStream stream = null;
+            
+                switch(getImagemAbrir()){
+                case RG: 
+                    if (selected.getRg_foto() != null){
+                        stream = new ByteArrayInputStream(selected.getRg_foto());
+                    }
+                    break;
+                    
+                case CPF:
+                    if (selected.getCpf_foto() != null){
+                        stream = new ByteArrayInputStream(selected.getCpf_foto());
+                    }
+                    break;
+                    
+                default:
+                    stream = new ByteArrayInputStream(selected.getFoto());
+                    break;
+            }
+            
+            this.setImagemAbrir(null);
             StreamedContent imagem = new DefaultStreamedContent(stream);
             return imagem;
         } else {
@@ -212,6 +238,16 @@ public class FuncionarioController implements Serializable {
     public void setTeste(UploadedFile teste) {
         this.teste = teste;
     }
+
+    public String getImagemAbrir() {
+        return imagemAbrir;
+    }
+
+    public void setImagemAbrir(String imagemAbrir) {
+        this.imagemAbrir = imagemAbrir;
+    }
+    
+    
 
     @FacesConverter(forClass = Funcionario.class)
     public static class FuncionarioControllerConverter implements Converter {

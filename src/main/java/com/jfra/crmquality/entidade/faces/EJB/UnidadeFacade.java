@@ -5,35 +5,79 @@
  */
 package com.jfra.crmquality.entidade.faces.EJB;
 
+import com.jfra.crm.quality.DAO.UnidadeDAOImpl;
 import com.jfra.crmquality.entidade.Unidade;
+import java.util.List;
 import javax.ejb.Stateless;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
+import javax.inject.Inject;
 
 /**
  *
  * @author AbadaCapoeira
  */
 @Stateless
-public class UnidadeFacade extends AbstractFacade<Unidade> {
+public class UnidadeFacade{
 
-    @PersistenceContext(unitName = "liquor")
-    private EntityManager em;
+    @Inject
+    UnidadeDAOImpl unidadeDAOImpl;
 
-    @Override
-    protected EntityManager getEntityManager() {
-        return em;
-    }
-
-    public UnidadeFacade() {
-        super(Unidade.class);
+    /**
+     * Método que salva uma nudade
+     * @param unidade
+     * @return 
+     */
+    public Unidade salvarUnidade(Unidade unidade){
+    
+        unidadeDAOImpl.salvarUnidade(unidade);
+        
+        return unidade;
+        
     }
     
-    //Teste git
-    public void salvarUnidade(Unidade unidade){
+    /**
+     * Método que apaga uma unidade
+     * @param unidade 
+     */
+    public void apagaUnidade(Unidade unidade){
         
-        em.merge(unidade);
+        unidadeDAOImpl.apagaUnidade(unidade);
         
     }
+    
+    
+    /**
+     * Método que altera uma unidade
+     * @param unidade
+     * @return 
+     */
+    public Unidade alteraUnidade(Unidade unidade){
+        
+        unidadeDAOImpl.editaUnidade(unidade);
+        return unidade;
+        
+    }
+    
+    /**
+     * Método que lista todas as unidades
+     * @return 
+     */
+    public List<Unidade> listaTodasUnidade(){
+        
+        return unidadeDAOImpl.listaTodasUnidades();
+        
+    }
+    
+    /**
+     * Método que busca uma unidade por ID
+     * @param id
+     * @return 
+     */
+    public Unidade retornUnidadePorID(int id){
+        
+        return unidadeDAOImpl.buscaUnidadeID(id);
+        
+    }
+    
+    
     
 }

@@ -74,13 +74,6 @@
             <version>1.10.19</version>
         </dependency>
         <dependency>
-            <groupId>org.glassfish.main.extras</groupId>
-            <artifactId>glassfish-embedded-static-shell</artifactId>
-            <version>4.0</version>
-            <scope>system</scope>
-            <systemPath>${glassfish.embedded-static-shell.jar}</systemPath>            
-        </dependency>
-        <dependency>
             <groupId>javax</groupId>
             <artifactId>javaee-web-api</artifactId>
             <version>7.0</version>

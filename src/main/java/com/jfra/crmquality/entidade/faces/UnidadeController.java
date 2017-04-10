@@ -76,7 +76,7 @@ public class UnidadeController implements Serializable {
 
     public List<Unidade> getItems() {
         if (items == null) {
-            items = getFacade().findAll();
+            items = getFacade().listaTodasUnidade();
         }
         return items;
     }
@@ -86,11 +86,11 @@ public class UnidadeController implements Serializable {
             setEmbeddableKeys();
             try {
                 if (persistAction == PersistAction.UPDATE) {
-                    getFacade().edit(selected);
+                    getFacade().alteraUnidade(selected);
                 } else if (persistAction == PersistAction.DELETE) {
-                    getFacade().remove(selected);
+                    getFacade().apagaUnidade(selected);
                 } else {
-                    
+                    getFacade().salvarUnidade(selected);
                 }
                 JsfUtil.addSuccessMessage(successMessage);
             } catch (EJBException ex) {
@@ -112,15 +112,15 @@ public class UnidadeController implements Serializable {
     }
 
     public Unidade getUnidade(java.lang.Integer id) {
-        return getFacade().find(id);
+        return getFacade().retornUnidadePorID(id);
     }
 
     public List<Unidade> getItemsAvailableSelectMany() {
-        return getFacade().findAll();
+        return getFacade().listaTodasUnidade();
     }
 
     public List<Unidade> getItemsAvailableSelectOne() {
-        return getFacade().findAll();
+        return getFacade().listaTodasUnidade();
     }
 
     @FacesConverter(forClass = Unidade.class)

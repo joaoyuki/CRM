@@ -82,8 +82,24 @@
                             </h:outputText>
                         </p:column>
                         <f:facet name="footer">
-                            <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{funcionarioController.prepareCreate}" update=":FuncionarioCreateForm" oncomplete="PF('FuncionarioCreateDialog').show()"/>
-                            <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{bundle.View}" update=":FuncionarioViewForm, :FuncionarioViewForm:menu:display, :FuncionarioViewForm:menu:imagem" oncomplete="PF('FuncionarioViewDialog').show()" disabled="#{empty funcionarioController.selected}"/>
+                            <p:commandButton 
+                                id="createButton" 
+                                icon="ui-icon-plus"   
+                                value="#{bundle.Create}" 
+                                actionListener="#{funcionarioController.prepareCreate}" 
+                                update=":FuncionarioCreateForm" 
+                                oncomplete="PF('FuncionarioCreateDialog').show()">
+                            </p:commandButton>
+                            
+                            <p:commandButton 
+                                id="viewButton"   
+                                icon="ui-icon-search" 
+                                value="#{bundle.View}" 
+                                update=":FuncionarioViewForm, :FuncionarioViewForm:menu:display, :FuncionarioViewForm:menu:imagem" 
+                                oncomplete="PF('FuncionarioViewDialog').show()" 
+                                disabled="#{empty funcionarioController.selected}">
+                                <f:setPropertyActionListener target="#{funcionarioController.imagemAbrir}" value="foto" />
+                            </p:commandButton>
                             <p:commandButton id="editButton"   icon="ui-icon-pencil" value="#{bundle.Edit}" update=":FuncionarioEditForm" oncomplete="PF('FuncionarioEditDialog').show()" disabled="#{empty funcionarioController.selected}"/>
                             <p:commandButton id="deleteButton" icon="ui-icon-trash"  value="#{bundle.Delete}" actionListener="#{funcionarioController.destroy}" update=":growl,datalist" disabled="#{empty funcionarioController.selected}"/>
                         </f:facet>

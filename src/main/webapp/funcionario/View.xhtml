@@ -37,7 +37,7 @@
                                         <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
                                     </h:outputText>
                                     <h:outputText value="#{bundle.ViewFuncionarioLabel_sexo}"/>
-                                    <h:outputText value="#{funcionarioController.selected.sexo}" title="#{bundle.ViewFuncionarioTitle_sexo}"/>
+                                    <h:outputText value="#{funcionarioController.selected.sexo eq 'f' ? 'Feminino' : 'Masculino'}" title="#{bundle.ViewFuncionarioTitle_sexo}"/>
                                     <h:outputText value="#{bundle.ViewFuncionarioLabel_dataNascimento}"/>
                                     <h:outputText value="#{funcionarioController.selected.dataNascimento}" title="#{bundle.ViewFuncionarioTitle_dataNascimento}">
                                         <f:convertDateTime pattern="MM/dd/yyyy" />

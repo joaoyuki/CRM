@@ -32,6 +32,8 @@ import org.primefaces.event.FileUploadEvent;
 import org.primefaces.model.DefaultStreamedContent;
 import org.primefaces.model.StreamedContent;
 import org.primefaces.model.UploadedFile;
+import org.primefaces.model.StreamedContent;
+
 
 @Named("funcionarioController")
 @SessionScoped
@@ -104,14 +106,6 @@ public class FuncionarioController implements Serializable {
         return items;
     }
     
-    public void upload() {
-        if(selected.getFile() != null) {
-            selected.setFoto(selected.getFile().getContents());
-            FacesMessage message = new FacesMessage("Succesful", selected.getFile().getFileName() + " is uploaded.");
-            FacesContext.getCurrentInstance().addMessage(null, message);
-        }
-    } 
- 
     /**
      * Método que faz o upload da imagem e salva no objeto
      * @param fileUploadEvent 
@@ -183,7 +177,7 @@ public class FuncionarioController implements Serializable {
     public StreamedContent abrirImagem(Funcionario selected){
         
         
-        if (selected != null &&  selected.getFoto() != null && getImagemAbrir() != null){
+        if (selected != null &&  selected.getFoto() != null){
 
             
             
@@ -207,7 +201,6 @@ public class FuncionarioController implements Serializable {
                     break;
             }
             
-            this.setImagemAbrir(null);
             StreamedContent imagem = new DefaultStreamedContent(stream);
             return imagem;
         } else {

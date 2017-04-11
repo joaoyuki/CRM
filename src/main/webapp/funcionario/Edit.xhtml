@@ -93,10 +93,23 @@
                         </p:selectOneMenu>
                     </p:panelGrid>
                     <p:panelGrid columns="2" rendered="#{funcionarioController.selected != null}">
-                        <p:fileUpload fileUploadListener="#{funcionarioController.doUpload}" label="Procurar..." auto="false" mode="advanced" />
+                        <p:fileUpload 
+                            fileUploadListener="#{funcionarioController.doUpload}" 
+                            label="Procurar..." 
+                            auto="false" 
+                            mode="advanced"
+                            update=":FuncionarioViewForm:menu:imagem"
+                            >
+                            <f:attribute name="tipoArquivo" value="foto" />
+                        </p:fileUpload>
                          <!--<p:messages  severity="info" escape="false" showDetail="true"  autoUpdate="true" closable="true"/>-->
                     </p:panelGrid>
-                    <p:commandButton actionListener="#{funcionarioController.update}" value="#{bundle.Save}" update="display, :growl, :FuncionarioListForm:datalist " oncomplete="handleSubmit(args, 'FuncionarioEditDialog');"/>
+                    <p:commandButton 
+                        actionListener="#{funcionarioController.update}" 
+                        value="#{bundle.Save}" 
+                        update="display, :growl, :FuncionarioListForm:datalist " 
+                        oncomplete="handleSubmit(args, 'FuncionarioEditDialog');">
+                    </p:commandButton>
                     <p:commandButton value="#{bundle.Cancel}" onclick="FuncionarioEditDialog.hide()"/>
                 </h:panelGroup>
             </h:form>

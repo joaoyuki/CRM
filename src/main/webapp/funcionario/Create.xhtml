@@ -107,12 +107,20 @@
                             <p:panelGrid columns="2" rendered="#{funcionarioController.selected != null}">
                                 
                                 <p:outputLabel value="RG" ></p:outputLabel>
-                                <p:fileUpload label="Adicionar imagem do RG" fileUploadListener="#{funcionarioController.doUpload}" auto="false" mode="advanced" fileLimit="1" >
+                                <p:fileUpload 
+                                    label="Adicionar imagem do RG" 
+                                    fileUploadListener="#{funcionarioController.doUpload}" 
+                                    auto="false" 
+                                    mode="advanced" 
+                                    fileLimit="1" >
                                     <f:attribute name="tipoArquivo" value="rg" />
                                 </p:fileUpload>
                                 
                                 <p:outputLabel value="CPF" ></p:outputLabel>
-                                <p:fileUpload label="Adicionar imagem do CPF" fileLimit="1" >
+                                <p:fileUpload 
+                                    label="Adicionar imagem do CPF" 
+                                    fileLimit="1"
+                                    fileUploadListener="#{funcionarioController.doUpload}" >
                                     <f:attribute name="tipoArquivo" value="cpf" />
                                 </p:fileUpload>
                                 

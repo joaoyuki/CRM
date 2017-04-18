@@ -7,38 +7,50 @@ import com.jfra.crmquality.entidade.Funcionario;
 public interface FuncionarioDAO {
 	
 	/**
-	 * Método que salva um novo funcionário
+	 * Mï¿½todo que salva um novo funcionï¿½rio
 	 * @param funcionario
 	 * @return {@link Funcionario}
 	 */
 	public Funcionario salvarFuncionario(Funcionario funcionario);
 	
 	/**
-	 * Método que edita um funcionário
+	 * Mï¿½todo que edita um funcionï¿½rio
 	 * @param funcionario
 	 * @return {@link Funcionario}
 	 */
 	public Funcionario editarFuncionario(Funcionario funcionario);
 	
 	/**
-	 * Método que retorna todos os funcionários cadastrados
+	 * Mï¿½todo que retorna todos os funcionï¿½rios cadastrados
 	 * @return {@link List} {@link Funcionario}
 	 */
 	public List<Funcionario> listaTodosFuncionarios();
 	
 	/**
-	 * Método que busca funcionário por ID
+	 * Mï¿½todo que busca funcionï¿½rio por ID
 	 * @param id
 	 * @return {@link Funcionario}
 	 */
 	public Funcionario buscaFuncionarioPorID(int id);
 	
 	/**
-	 * Método que deleta um funcionário
+	 * Mï¿½todo que deleta um funcionï¿½rio
 	 * @param funcionario
 	 */
 	public void deletaFuncionario(Funcionario funcionario);
+        
+        /**
+         * MÃ©todo que retorna a foto do funcionÃ¡rio por ID
+         * @param id
+         * @return 
+         */
+        public Funcionario buscaFotoPorID(int id);
 	
+        /**
+         * MÃ©todo que retorna uma lista de funcionÃ¡rios sem foto
+         * @return 
+         */
+        public List<Funcionario> listaFuncionariosSemFoto();
 	
 
 }

@@ -97,6 +97,7 @@
                                 value="#{bundle.View}" 
                                 update=":FuncionarioViewForm, :FuncionarioViewForm:menu:display, :FuncionarioViewForm:menu:imagem" 
                                 oncomplete="PF('FuncionarioViewDialog').show()" 
+                                action="#{funcionarioController.carregaInformacoes(funcionarioController.selected)}"
                                 disabled="#{empty funcionarioController.selected}">
                                 <f:setPropertyActionListener target="#{funcionarioController.imagemAbrir}" value="foto" />
                             </p:commandButton>

@@ -90,6 +90,12 @@ public class FuncionarioFacade{
     	
     }
     
+    public List<Funcionario> listaFuncionariosSemFoto(){
+        
+        return funcionarioDAOImpl.listaFuncionariosSemFoto();
+        
+    }
+    
     
     
 }

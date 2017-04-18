@@ -39,6 +39,8 @@ import org.primefaces.model.UploadedFile;
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Funcionario.findAll", query = "SELECT f FROM Funcionario f")
+    ,    @NamedQuery(name = "Funcionario.findAllName", query = "SELECT  f.idFuncionario ,f.nomeFuncionario, f.sobrenomeFuncionario, f.emailPessoal FROM Funcionario f")
+    , @NamedQuery(name = "Funcionario.funcionarioSemFoto", query = "SELECT f.idFuncionario, f.nomeFuncionario, f.sobrenomeFuncionario, f.rg, f.cpf, f.dataNascimento, f.emailEmpresa FROM Funcionario f")    
     , @NamedQuery(name = "Funcionario.findByIdFuncionario", query = "SELECT f FROM Funcionario f WHERE f.idFuncionario = :idFuncionario")
     , @NamedQuery(name = "Funcionario.findByNomeFuncionario", query = "SELECT f FROM Funcionario f WHERE f.nomeFuncionario = :nomeFuncionario")
     , @NamedQuery(name = "Funcionario.findBySobrenomeFuncionario", query = "SELECT f FROM Funcionario f WHERE f.sobrenomeFuncionario = :sobrenomeFuncionario")
@@ -477,5 +479,30 @@ public class Funcionario implements Serializable {
     public String toString() {
         return "com.jfra.crmquality.entidade.Funcionario[ idFuncionario=" + idFuncionario + " ]";
     }
+
+    public Funcionario(Integer idFuncionario, String nomeFuncionario, String sobrenomeFuncionario) {
+        this.idFuncionario = idFuncionario;
+        this.nomeFuncionario = nomeFuncionario;
+        this.sobrenomeFuncionario = sobrenomeFuncionario;
+    }
+
+    public Funcionario(Integer idFuncionario, String nomeFuncionario) {
+        this.idFuncionario = idFuncionario;
+        this.nomeFuncionario = nomeFuncionario;
+    }
+
+    public Funcionario(Integer idFuncionario, String nomeFuncionario, String sobrenomeFuncionario, String rg, String cpf, Date dataNascimento, String emailEmpresa, Date dataAdmissão, Date dataDemissao) {
+        this.idFuncionario = idFuncionario;
+        this.nomeFuncionario = nomeFuncionario;
+        this.sobrenomeFuncionario = sobrenomeFuncionario;
+        this.rg = rg;
+        this.cpf = cpf;
+        this.dataNascimento = dataNascimento;
+        this.emailEmpresa = emailEmpresa;
+        this.dataAdmissão = dataAdmissão;
+        this.dataDemissao = dataDemissao;
+    }
+    
+    
 
 }

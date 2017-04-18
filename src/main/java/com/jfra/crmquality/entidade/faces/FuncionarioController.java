@@ -101,7 +101,7 @@ public class FuncionarioController implements Serializable {
 
     public List<Funcionario> getItems() {
         if (items == null) {
-            items = getFacade().listaTodosFuncionarios();
+            items = getFacade().listaFuncionariosSemFoto();
         }
         return items;
     }
@@ -209,6 +209,10 @@ public class FuncionarioController implements Serializable {
             return imagem;
         }
         
+    }
+    
+    public void carregaInformacoes(Funcionario funcionario){
+        selected =  ejbFacade.buscaFuncionarioID(funcionario.getIdFuncionario());
     }
     
 

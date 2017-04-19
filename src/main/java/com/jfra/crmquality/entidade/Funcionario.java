@@ -286,6 +286,7 @@ public class Funcionario implements Serializable {
     public Character getSexo() {
         return sexo;
     }
+    
 
     public void setSexo(Character sexo) {
         this.sexo = sexo;
@@ -302,6 +303,31 @@ public class Funcionario implements Serializable {
     public Character getEstadoCivil() {
         return estadoCivil;
     }
+    
+    public String getEstadoCivilString(){
+        
+        String estado = "";
+        Character s = this.estadoCivil;
+        
+        switch(s){
+            case 'c':
+                estado = "Casado(a)";
+                break;
+                
+            case 's':
+                estado = "Solteiro(a)";
+                break;
+                
+            case 'v':
+                estado = "Viuvo(a)";
+                break;
+                
+        }
+            
+        
+        return estado;
+        
+    }    
 
     public void setEstadoCivil(Character estadoCivil) {
         this.estadoCivil = estadoCivil;

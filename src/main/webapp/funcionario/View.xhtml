@@ -8,7 +8,7 @@
 
     <ui:composition>
 
-        <p:dialog id="FuncionarioViewDlg" widgetVar="FuncionarioViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewFuncionarioTitle}">
+        <p:dialog id="FuncionarioViewDlg" width="700px" height="500px" widgetVar="FuncionarioViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewFuncionarioTitle}">
             <h:form id="FuncionarioViewForm">
                 <p:tabView id="menu"  >
                     <p:tab id="informacoes" title="Informações gerais">
@@ -43,7 +43,7 @@
                                         <f:convertDateTime pattern="MM/dd/yyyy" />
                                     </h:outputText>
                                     <h:outputText value="#{bundle.ViewFuncionarioLabel_estadoCivil}"/>
-                                    <h:outputText value="#{funcionarioController.selected.estadoCivil}" title="#{bundle.ViewFuncionarioTitle_estadoCivil}"/>
+                                    <h:outputText value="#{funcionarioController.selected.estadoCivilString}" title="#{bundle.ViewFuncionarioTitle_estadoCivil}"/>
                                     <h:outputText value="#{bundle.ViewFuncionarioLabel_dataCasamento}"/>
                                     <h:outputText value="#{funcionarioController.selected.dataCasamento}" title="#{bundle.ViewFuncionarioTitle_dataCasamento}">
                                         <f:convertDateTime pattern="MM/dd/yyyy" />
@@ -57,8 +57,6 @@
                                     <h:outputText value="#{funcionarioController.selected.emailEmpresa}" title="#{bundle.ViewFuncionarioTitle_emailEmpresa}"/>
                                     <h:outputText value="#{bundle.ViewFuncionarioLabel_emailPessoal}"/>
                                     <h:outputText value="#{funcionarioController.selected.emailPessoal}" title="#{bundle.ViewFuncionarioTitle_emailPessoal}"/>
-                                    <h:outputText value="#{bundle.ViewFuncionarioLabel_foto}"/>
-                                    <h:outputText value="#{funcionarioController.selected.foto}" title="#{bundle.ViewFuncionarioTitle_foto}"/>
                                     <h:outputText value="#{bundle.ViewFuncionarioLabel_grauEscolar}"/>
                                     <h:outputText value="#{funcionarioController.selected.grauEscolar}" title="#{bundle.ViewFuncionarioTitle_grauEscolar}"/>
                                     <h:outputText value="#{bundle.ViewFuncionarioLabel_planoSaudeInterno}"/>

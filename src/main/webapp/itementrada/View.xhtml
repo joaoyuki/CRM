@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewItementradaTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewItementradaLabel_iditemEntrada}"/>
+                    <h:outputText value="#{itementradaController.selected.iditemEntrada}" title="#{bundle.ViewItementradaTitle_iditemEntrada}"/>
+                    <h:outputText value="#{bundle.ViewItementradaLabel_idProd}"/>
+                    <h:outputText value="#{itementradaController.selected.idProd}" title="#{bundle.ViewItementradaTitle_idProd}"/>
+                    <h:outputText value="#{bundle.ViewItementradaLabel_quantidade}"/>
+                    <h:outputText value="#{itementradaController.selected.quantidade}" title="#{bundle.ViewItementradaTitle_quantidade}"/>
+                    <h:outputText value="#{bundle.ViewItementradaLabel_valorUnitario}"/>
+                    <h:outputText value="#{itementradaController.selected.valorUnitario}" title="#{bundle.ViewItementradaTitle_valorUnitario}"/>
+                    <h:outputText value="#{bundle.ViewItementradaLabel_itemEntradacol}"/>
+                    <h:outputText value="#{itementradaController.selected.itemEntradacol}" title="#{bundle.ViewItementradaTitle_itemEntradacol}"/>
+                    <h:outputText value="#{bundle.ViewItementradaLabel_entrada}"/>
+                    <h:outputText value="#{itementradaController.selected.entrada}" title="#{bundle.ViewItementradaTitle_entrada}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{itementradaController.destroyAndView}" value="#{bundle.ViewItementradaDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewItementradaEditLink}"/>
+                <br />
+                <h:commandLink action="#{itementradaController.prepareCreate}" value="#{bundle.ViewItementradaCreateLink}" />
+                <br />
+                <h:commandLink action="#{itementradaController.prepareList}" value="#{bundle.ViewItementradaShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewItementradaIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

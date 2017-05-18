@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewEntradaTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewEntradaLabel_identrada}"/>
+                    <h:outputText value="#{entradaController.selected.identrada}" title="#{bundle.ViewEntradaTitle_identrada}"/>
+                    <h:outputText value="#{bundle.ViewEntradaLabel_dataEntrada}"/>
+                    <h:outputText value="#{entradaController.selected.dataEntrada}" title="#{bundle.ViewEntradaTitle_dataEntrada}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewEntradaLabel_dataPedido}"/>
+                    <h:outputText value="#{entradaController.selected.dataPedido}" title="#{bundle.ViewEntradaTitle_dataPedido}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewEntradaLabel_totalCompra}"/>
+                    <h:outputText value="#{entradaController.selected.totalCompra}" title="#{bundle.ViewEntradaTitle_totalCompra}"/>
+                    <h:outputText value="#{bundle.ViewEntradaLabel_numeroNF}"/>
+                    <h:outputText value="#{entradaController.selected.numeroNF}" title="#{bundle.ViewEntradaTitle_numeroNF}"/>
+                    <h:outputText value="#{bundle.ViewEntradaLabel_itementrada}"/>
+                    <h:outputText value="#{entradaController.selected.itementrada}" title="#{bundle.ViewEntradaTitle_itementrada}"/>
+                    <h:outputText value="#{bundle.ViewEntradaLabel_idSetor}"/>
+                    <h:outputText value="#{entradaController.selected.idSetor}" title="#{bundle.ViewEntradaTitle_idSetor}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{entradaController.destroyAndView}" value="#{bundle.ViewEntradaDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewEntradaEditLink}"/>
+                <br />
+                <h:commandLink action="#{entradaController.prepareCreate}" value="#{bundle.ViewEntradaCreateLink}" />
+                <br />
+                <h:commandLink action="#{entradaController.prepareList}" value="#{bundle.ViewEntradaShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewEntradaIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

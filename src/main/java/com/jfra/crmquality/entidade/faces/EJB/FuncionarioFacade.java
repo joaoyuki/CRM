@@ -22,9 +22,6 @@ import javax.persistence.PersistenceContext;
  */
 @Stateless
 public class FuncionarioFacade{
-    
-    @PersistenceContext(unitName = "liquor")
-    private EntityManager em;
 
     //@Inject
     //FuncionarioDAOImpl funcionarioDAOImpl; 

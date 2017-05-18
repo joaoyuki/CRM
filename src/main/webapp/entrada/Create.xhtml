@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateEntradaTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateEntradaLabel_identrada}" for="identrada" />
+                    <h:inputText id="identrada" value="#{entradaController.selected.identrada}" title="#{bundle.CreateEntradaTitle_identrada}" required="true" requiredMessage="#{bundle.CreateEntradaRequiredMessage_identrada}"/>
+                    <h:outputLabel value="#{bundle.CreateEntradaLabel_dataEntrada}" for="dataEntrada" />
+                    <h:inputText id="dataEntrada" value="#{entradaController.selected.dataEntrada}" title="#{bundle.CreateEntradaTitle_dataEntrada}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateEntradaLabel_dataPedido}" for="dataPedido" />
+                    <h:inputText id="dataPedido" value="#{entradaController.selected.dataPedido}" title="#{bundle.CreateEntradaTitle_dataPedido}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateEntradaLabel_totalCompra}" for="totalCompra" />
+                    <h:inputText id="totalCompra" value="#{entradaController.selected.totalCompra}" title="#{bundle.CreateEntradaTitle_totalCompra}" />
+                    <h:outputLabel value="#{bundle.CreateEntradaLabel_numeroNF}" for="numeroNF" />
+                    <h:inputText id="numeroNF" value="#{entradaController.selected.numeroNF}" title="#{bundle.CreateEntradaTitle_numeroNF}" />
+                    <h:outputLabel value="#{bundle.CreateEntradaLabel_itementrada}" for="itementrada" />
+                    <h:selectOneMenu id="itementrada" value="#{entradaController.selected.itementrada}" title="#{bundle.CreateEntradaTitle_itementrada}" >
+                        <f:selectItems value="#{itementradaController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateEntradaLabel_idSetor}" for="idSetor" />
+                    <h:selectOneMenu id="idSetor" value="#{entradaController.selected.idSetor}" title="#{bundle.CreateEntradaTitle_idSetor}" >
+                        <f:selectItems value="#{setorController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{entradaController.create}" value="#{bundle.CreateEntradaSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{entradaController.prepareList}" value="#{bundle.CreateEntradaShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateEntradaIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

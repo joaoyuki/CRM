@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditItementradaTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditItementradaLabel_iditemEntrada}" for="iditemEntrada" />
+                    <h:inputText id="iditemEntrada" value="#{itementradaController.selected.iditemEntrada}" title="#{bundle.EditItementradaTitle_iditemEntrada}" required="true" requiredMessage="#{bundle.EditItementradaRequiredMessage_iditemEntrada}"/>
+                    <h:outputLabel value="#{bundle.EditItementradaLabel_idProd}" for="idProd" />
+                    <h:inputText id="idProd" value="#{itementradaController.selected.idProd}" title="#{bundle.EditItementradaTitle_idProd}" />
+                    <h:outputLabel value="#{bundle.EditItementradaLabel_quantidade}" for="quantidade" />
+                    <h:inputText id="quantidade" value="#{itementradaController.selected.quantidade}" title="#{bundle.EditItementradaTitle_quantidade}" />
+                    <h:outputLabel value="#{bundle.EditItementradaLabel_valorUnitario}" for="valorUnitario" />
+                    <h:inputText id="valorUnitario" value="#{itementradaController.selected.valorUnitario}" title="#{bundle.EditItementradaTitle_valorUnitario}" />
+                    <h:outputLabel value="#{bundle.EditItementradaLabel_itemEntradacol}" for="itemEntradacol" />
+                    <h:inputText id="itemEntradacol" value="#{itementradaController.selected.itemEntradacol}" title="#{bundle.EditItementradaTitle_itemEntradacol}" />
+                    <h:outputLabel value="#{bundle.EditItementradaLabel_entrada}" for="entrada" />
+                    <h:selectOneMenu id="entrada" value="#{itementradaController.selected.entrada}" title="#{bundle.EditItementradaTitle_entrada}" required="true" requiredMessage="#{bundle.EditItementradaRequiredMessage_entrada}">
+                        <f:selectItems value="#{entradaController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandLink action="#{itementradaController.update}" value="#{bundle.EditItementradaSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditItementradaViewLink}"/>
+                <br />
+                <h:commandLink action="#{itementradaController.prepareList}" value="#{bundle.EditItementradaShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditItementradaIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
